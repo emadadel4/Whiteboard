@@ -6,6 +6,18 @@
     <title>EPROJECTS | Whiteboard</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="inputs">
+            <input type="color" id="color" onchange="getThing()">
+            <input type="number" id="size" value="1" onchange="getThing()">
+            <input type="button" id="clear" value="Clear" onclick="clearAll()">
+
+        </div>
+
+        <canvas id="canvas"></canvas>
+
+    </div>
+
+    <script src="engine.js"></script>
 </body>
 </html>
