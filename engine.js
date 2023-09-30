@@ -1,10 +1,14 @@
-var canves = document.getElementById("canvas");
 
-canves.width = window.innerWidth;
-canves.height = window.innerHeight;
+const canves = document.querySelector("canvas"),
+size = document.querySelector("#size"),
+color = document.querySelector("#color"),
 
-var ctx = canvas.getContext('2d');
-var drawing = false;
+
+ctx = canvas.getContext('2d');
+
+
+let isDrawing = false
+brushWidth = 1;
 
 function getThing()
 {
@@ -17,36 +21,28 @@ function getThing()
     }
 }
 
-function StartDraw(){
+window.addEventListener("load",()=> {
+    canves.width = canves.offsetWidth;
+    canves.height = canves.offsetHeight;
+});
 
-    drawing = true;
+const drawing = (e) => {
 
-}
-
-function StopDraw(){
-
-    drawing = false;
-    ctx.beginPath();
-
-}
-
-function Draw(e){
-
-    if(!drawing) return;
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = "10";
-    ctx.lineCap = "round";
-    ctx.lineTo(e.clientX,e.clientY);
-    ctx.moveTo(e.clientX,e.clientY);
+    if(!isDrawing)return;
+    ctx.lineTo(e.offsetX,e.offsetY);
+    ctx.strokeStyle = color.value;
+    ctx.lineWidth = brushWidth;
     ctx.stroke();
 
 }
 
-function clearAll()
-{
-    console.log("Clear");
+const StartDraw = () =>{
+    isDrawing = true;
+    ctx.beginPath();
 }
 
+
+size.addEventListener("change",() => brushWidth = size.value);
 canves.addEventListener("mousedown", StartDraw);
-canves.addEventListener("mouseup", StopDraw);
-canves.addEventListener("mousemove", Draw);
+canves.addEventListener("mouseup", () => isDrawing = false);
+canves.addEventListener("mousemove", drawing);

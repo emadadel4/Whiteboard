@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" />
     <title>EPROJECTS | Whiteboard</title>
 </head>
 <body>
     <div class="container">
-        <div class="inputs">
-            <input type="color" id="color" onchange="getThing()">
-            <input type="number" id="size" value="1" onchange="getThing()">
-            <input type="button" id="clear" value="Clear" onclick="clearAll()">
 
-        </div>
+        <header>
+            <div class="tools">
+                <input type="color" id="color" onchange="getThing()">
+                <input type="range" id="size" value="1" min="1" max="10" >
+                <input type="button" id="clear" value="Clear" onclick="clearAll()">
+            </div>
+        </header>
+      
 
-        <canvas id="canvas"></canvas>
+        <main>
+            <canvas id="canvas"></canvas>
+        </main>
 
     </div>
 
