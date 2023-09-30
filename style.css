@@ -2,8 +2,8 @@
 .container{
     display: grid;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 50fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 50fr 1fr;
     grid-template-areas: "header header" "main main";
     text-decoration: none;
 
@@ -12,6 +12,7 @@
 #canvas{
     width: 100%;
     height: 100%;
+
 }
 
 html{
@@ -21,7 +22,7 @@ html{
 
 body{
     height: 100%;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(250, 250, 250);
 }
 
 header{
@@ -31,6 +32,6 @@ header{
 }
 main{
     grid-area: main;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(255, 255, 255);
 
 }

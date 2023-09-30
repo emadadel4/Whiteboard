@@ -2,6 +2,9 @@
 const canves = document.querySelector("canvas"),
 size = document.querySelector("#size"),
 color = document.querySelector("#color"),
+
+//bgColor = document.querySelector("#bg"),
+
 clear = document.querySelector("#clear"),
 save = document.querySelector("#save"),
 
@@ -12,20 +15,10 @@ ctx = canvas.getContext('2d');
 let isDrawing = false
 brushWidth = 1;
 
-function getThing()
-{
-    var color = document.getElementById('color').value;
-    var size = document.getElementById('size').value;
-
-    return {
-        color,
-        size
-    }
-}
-
 window.addEventListener("load",()=> {
     canves.width = canves.offsetWidth;
     canves.height = canves.offsetHeight;
+
 });
 
 const drawing = (e) => {
@@ -54,8 +47,8 @@ save.addEventListener("click", () => {
 
 
 clear.addEventListener("click", () => {
-
     ctx.clearRect(0,0,canves.width,canves.height);
+
 
 });
 
