@@ -2,6 +2,8 @@
 const canves = document.querySelector("canvas"),
 size = document.querySelector("#size"),
 color = document.querySelector("#color"),
+clear = document.querySelector("#clear"),
+save = document.querySelector("#save"),
 
 
 ctx = canvas.getContext('2d');
@@ -41,6 +43,21 @@ const StartDraw = () =>{
     ctx.beginPath();
 }
 
+save.addEventListener("click", () => {
+
+    const link = document.createElement("a");
+    link.download = Date.now();
+    link.href = canves.toDataURL();
+    link.click();
+
+});
+
+
+clear.addEventListener("click", () => {
+
+    ctx.clearRect(0,0,canves.width,canves.height);
+
+});
 
 size.addEventListener("change",() => brushWidth = size.value);
 canves.addEventListener("mousedown", StartDraw);
